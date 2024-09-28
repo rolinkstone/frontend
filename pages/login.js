@@ -15,7 +15,7 @@ const LoginPage = () => {
         setError('');
       
         try {
-          const response = await axios.post('http://localhost:5000/api/login', {
+          const response = await axios.post('http://202.10.41.174:5000/api/login', {
             username,
             password,
           });
