@@ -13,23 +13,27 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-
+      
         try {
-            const response = await axios.post('http://202.10.41.174:5000/api/login', {
-                username,
-                password,
-            });
-
-            // Store the token in local storage or session storage
-            localStorage.setItem('token', response.data.token);
-
-            // Redirect to a different page after successful login
-            router.push('/'); // Redirect to the home page
+          const response = await axios.post('http://202.10.41.174:5000/api/login', {
+            username,
+            password,
+          });
+      
+          // Store the token in local storage or session storage
+          localStorage.setItem('token', response.data.token);
+      
+          // Redirect to a different page after successful login
+          router.push('/'); // Redirect to the home page
         } catch (err) {
-            setError('Invalid credentials. Please try again.');
-            console.error('Login error:', err);
+          if (err.response && err.response.data && err.response.data.error) {
+            setError(err.response.data.error);
+          } else {
+            setError('An unexpected error occurred. Please try again.');
+          }
+          console.error('Login error:', err);
         }
-    };
+      };
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
