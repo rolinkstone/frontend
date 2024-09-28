@@ -15,7 +15,7 @@ const Home = () => {
 
         // If there is no token, redirect to login
         if (!token) {
-            router.push('/');
+            router.push('/login');
         } else {
             // Decode the token to get user ID
             const decodedToken = jwt.decode(token);
