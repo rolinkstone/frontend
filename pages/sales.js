@@ -404,7 +404,7 @@ const handleEdit = async () => {
         const updatedItems = [...salesItems];
         updatedItems[index] = {
             ...updatedItems[index],
-            quantity: value, // Update the quantity
+            quantity: value, // Update the quantit
         };
     
         // Calculate price_item based on the updated quantity and current price
