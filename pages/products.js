@@ -69,7 +69,7 @@ export default function ProductsPage() {
         if (!token) return;
 
         try {
-            const res = await axios.get('http://localhost:5000/api/products', {
+            const res = await axios.get('http://202.10.41.174:5000/api/products', {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -96,7 +96,7 @@ export default function ProductsPage() {
         if (!token) return;
 
         try {
-            const res = await axios.get('http://localhost:5000/api/suppliers', {
+            const res = await axios.get('http://202.10.41.174:5000/api/suppliers', {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -112,7 +112,7 @@ export default function ProductsPage() {
         if (!token) return;
 
         try {
-            const res = await axios.get('http://localhost:5000/api/categories', {
+            const res = await axios.get('http://202.10.41.174:5000/api/categories', {
                 headers: { Authorization: `Bearer ${token}` }, // Correct syntax for Bearer token
             });
 
@@ -149,12 +149,12 @@ export default function ProductsPage() {
 
         try {
             if (editId) {
-                await axios.put(`http://localhost:5000/api/products/${editId}`, formData, {
+                await axios.put(`http://202.10.41.174:5000/api/products/${editId}`, formData, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setNotificationMessage('Product berhasil diperbarui!');
             } else {
-                await axios.post('http://localhost:5000/api/products', formData, {
+                await axios.post('http://202.10.41.174:5000/api/products', formData, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setNotificationMessage('Product berhasil ditambahkan!');
@@ -209,7 +209,7 @@ export default function ProductsPage() {
         const token = localStorage.getItem('token');
 
         try {
-            await axios.delete(`http://localhost:5000/api/products/${itemToDelete}`, {
+            await axios.delete(`http://202.10.41.174:5000/api/products/${itemToDelete}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setNotificationMessage('Product berhasil dihapus!');

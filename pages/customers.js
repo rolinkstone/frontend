@@ -54,7 +54,7 @@ export default function CustomersPage() {
         }
 
         try {
-            const res = await axios.get('http://localhost:5000/api/customers', {
+            const res = await axios.get('http://202.10.41.174:5000/api/customers', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -109,12 +109,12 @@ export default function CustomersPage() {
 
         try {
             if (editId) {
-                await axios.put(`http://localhost:5000/api/customers/${editId}`, formData, {
+                await axios.put(`http://202.10.41.174:5000/api/customers/${editId}`, formData, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setNotificationMessage('Customer berhasil diperbarui!');
             } else {
-                await axios.post('http://localhost:5000/api/customers', formData, {
+                await axios.post('http://202.10.41.174:5000/api/customers', formData, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setNotificationMessage('Customer berhasil ditambahkan!');
@@ -164,7 +164,7 @@ export default function CustomersPage() {
     const confirmDelete = async () => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://localhost:5000/api/customers/${itemToDelete}`, {
+            await axios.delete(`http://202.10.41.174:5000/api/customers/${itemToDelete}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setNotificationMessage('Customer berhasil dihapus!');

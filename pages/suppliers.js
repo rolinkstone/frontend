@@ -53,7 +53,7 @@ export default function SuppliersPage() {
         }
 
         try {
-            const res = await axios.get('http://localhost:5000/api/suppliers', {
+            const res = await axios.get('http://202.10.41.174:5000/api/suppliers', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -102,14 +102,14 @@ export default function SuppliersPage() {
     
         try {
             if (editId) {
-                await axios.put(`http://localhost:5000/api/suppliers/${editId}`, formData, {
+                await axios.put(`http://202.10.41.174:5000/api/suppliers/${editId}`, formData, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 });
                 setNotificationMessage('Supplier berhasil diperbarui!');
             } else {
-                await axios.post('http://localhost:5000/api/suppliers', formData, {
+                await axios.post('http://202.10.41.174:5000/api/suppliers', formData, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -162,7 +162,7 @@ export default function SuppliersPage() {
         const token = localStorage.getItem('token'); 
     
         try {
-            await axios.delete(`http://localhost:5000/api/suppliers/${itemToDelete}`, {
+            await axios.delete(`http://202.10.41.174:5000/api/suppliers/${itemToDelete}`, {
                 headers: {
                     'Authorization': `Bearer ${token}` 
                 }

@@ -91,7 +91,7 @@ export default function SalesPage() {
         }
 
         try {
-            const res = await axios.get('http://localhost:5000/api/sales', {
+            const res = await axios.get('http://202.10.41.174:5000/api/sales', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -120,7 +120,7 @@ export default function SalesPage() {
         if (!token) return;
 
         try {
-            const res = await axios.get('http://localhost:5000/api/customers', {
+            const res = await axios.get('http://202.10.41.174:5000/api/customers', {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -136,7 +136,7 @@ export default function SalesPage() {
         if (!token) return;
 
         try {
-            const res = await axios.get('http://localhost:5000/api/products', {
+            const res = await axios.get('http://202.10.41.174:5000/api/products', {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -187,7 +187,7 @@ export default function SalesPage() {
         }));
       
         try {
-          const res = await axios.post('http://localhost:5000/api/sales', {
+          const res = await axios.post('http://202.10.41.174:5000/api/sales', {
             ...formDataCopy,
             items: salesItemsData,
           }, {
@@ -248,7 +248,7 @@ const handleEdit = async () => {
   }));
 
   try {
-    const res = await axios.put(`http://localhost:5000/api/sales/${saleId}`, {
+    const res = await axios.put(`http://202.10.41.174:5000/api/sales/${saleId}`, {
       ...formDataCopy,
       items: salesItemsData,
     }, {
@@ -297,7 +297,7 @@ const handleEdit = async () => {
       
         try {
           // Delete the sales item
-          await axios.delete(`http://localhost:5000/api/sales/${itemToDelete}`, {
+          await axios.delete(`http://202.10.41.174:5000/api/sales/${itemToDelete}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
       

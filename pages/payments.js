@@ -57,7 +57,7 @@ export default function PaymentsPage() {
         }
 
         try {
-            const res = await axios.get('http://localhost:5000/api/payments', {
+            const res = await axios.get('http://202.10.41.174:5000/api/payments', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -106,12 +106,12 @@ export default function PaymentsPage() {
 
         try {
             if (editId) {
-                await axios.put(`http://localhost:5000/api/payments/${editId}`, formData, {
+                await axios.put(`http://202.10.41.174:5000/api/payments/${editId}`, formData, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setNotificationMessage('Payment berhasil diperbarui!');
             } else {
-                await axios.post('http://localhost:5000/api/payments', formData, {
+                await axios.post('http://202.10.41.174:5000/api/payments', formData, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setNotificationMessage('Payment berhasil ditambahkan!');
@@ -169,7 +169,7 @@ export default function PaymentsPage() {
     const confirmDelete = async () => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://localhost:5000/api/payments/${itemToDelete}`, {
+            await axios.delete(`http://202.10.41.174:5000/api/payments/${itemToDelete}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setNotificationMessage('Payment berhasil dihapus!');

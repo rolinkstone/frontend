@@ -54,7 +54,7 @@ export default function CategoriesPage() {
         }
 
         try {
-            const res = await axios.get('http://localhost:5000/api/categories', {
+            const res = await axios.get('http://202.10.41.174:5000/api/categories', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -109,12 +109,12 @@ export default function CategoriesPage() {
 
         try {
             if (editId) {
-                await axios.put(`http://localhost:5000/api/categories/${editId}`, formData, {
+                await axios.put(`http://202.10.41.174:5000/api/categories/${editId}`, formData, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setNotificationMessage('Category berhasil diperbarui!');
             } else {
-                await axios.post('http://localhost:5000/api/categories', formData, {
+                await axios.post('http://202.10.41.174:5000/api/categories', formData, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setNotificationMessage('Category berhasil ditambahkan!');
@@ -158,7 +158,7 @@ export default function CategoriesPage() {
     const confirmDelete = async () => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://localhost:5000/api/categories/${itemToDelete}`, {
+            await axios.delete(`http://202.10.41.174:5000/api/categories/${itemToDelete}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setNotificationMessage('Category berhasil dihapus!');
